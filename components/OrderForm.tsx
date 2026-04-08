@@ -33,7 +33,7 @@ export function OrderForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-4">
+    <form onSubmit={handleSubmit} noValidate className="space-y-5">
 
       <Field label="Nom du produit" error={validationErrors.productName}>
         <input
@@ -66,31 +66,35 @@ export function OrderForm() {
         type="submit"
         disabled={isLoading}
         className={cn(
-          "mt-1 flex w-full items-center justify-center gap-2 rounded-lg",
-          "bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white",
-          "shadow-sm shadow-indigo-200 transition duration-150",
-          "hover:bg-indigo-700 active:scale-[0.99]",
-          "focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+          "group mt-1 flex w-full items-center justify-center gap-2 rounded-xl",
+          "bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-3 text-sm font-semibold text-white",
+          "shadow-md shadow-indigo-200 transition-all duration-200",
+          "hover:from-indigo-700 hover:to-indigo-600 hover:shadow-lg hover:shadow-indigo-200",
+          "active:scale-[0.99]",
+          "focus:outline-none focus:ring-4 focus:ring-indigo-500/20",
           "disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
         )}
       >
-        {isLoading
-          ? <Loader label="Création..." className="text-white/80" />
-          : <><span>Créer la commande</span><ArrowRight className="h-4 w-4" /></>
-        }
+        {isLoading ? (
+          <Loader label="Création en cours..." className="text-white/80" />
+        ) : (
+          <>
+            Créer la commande
+            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </>
+        )}
       </button>
 
     </form>
   );
 }
 
-/* Wrapper label + input + erreur */
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
-    <div className="space-y-1.5">
-      <label className="block text-sm font-medium text-slate-700">{label}</label>
+    <div className="space-y-2">
+      <label className="block text-sm font-semibold text-slate-700">{label}</label>
       {children}
-      {error && <p className="text-xs text-red-500">{error}</p>}
+      {error && <p className="flex items-center gap-1 text-xs text-red-500">{error}</p>}
     </div>
   );
 }

@@ -5,25 +5,31 @@ export const metadata = { title: "Nouvelle commande" };
 
 export default function NewOrderPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center px-4 py-12">
-      <div className="w-full max-w-[400px]">
+    <main className="flex min-h-screen items-center justify-center px-4 py-16">
+      <div className="w-full max-w-[420px]">
 
-        {/* Logo / icône */}
-        <div className="mb-8 flex flex-col items-center gap-3 text-center">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-600 shadow-lg shadow-indigo-200">
-            <ShoppingCart className="h-5 w-5 text-white" />
+        {/* Header */}
+        <div className="mb-10 flex flex-col items-center gap-4 text-center">
+          <div className="relative">
+            <div className="absolute inset-0 rounded-2xl bg-indigo-500 blur-xl opacity-30" />
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-700 shadow-lg">
+              <ShoppingCart className="h-6 w-6 text-white" />
+            </div>
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-slate-900">Nouvelle commande</h1>
-            <p className="mt-0.5 text-sm text-slate-400">Remplissez les champs pour continuer</p>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900">Nouvelle commande</h1>
+            <p className="mt-1.5 text-sm text-slate-500">Remplissez les champs pour passer votre commande</p>
           </div>
         </div>
 
-        {/* Carte */}
-        <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm shadow-slate-100">
+        {/* Card */}
+        <div className="card p-7">
           <OrderForm />
         </div>
 
+        <p className="mt-5 text-center text-xs text-slate-400">
+          Traitement automatique via pipeline serverless
+        </p>
       </div>
     </main>
   );
