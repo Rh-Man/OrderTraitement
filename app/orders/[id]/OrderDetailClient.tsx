@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Package } from "lucide-react";
+import { ArrowLeft, Package, History } from "lucide-react";
 import { useOrder } from "@/hooks/useOrder";
 import { OrderDetails } from "@/components/OrderDetails";
 import { Loader } from "@/components/Loader";
@@ -16,14 +16,23 @@ export function OrderDetailClient({ id }: { id: string }) {
     <main className="flex min-h-screen items-center justify-center px-4 py-16">
       <div className="w-full max-w-[420px]">
 
-        {/* Retour */}
-        <Link
-          href="/orders/new"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-slate-700"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" />
-          Retour
-        </Link>
+        {/* Navigation */}
+        <div className="mb-8 flex items-center justify-between">
+          <Link
+            href="/orders/new"
+            className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-slate-700"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Nouvelle commande
+          </Link>
+          <Link
+            href="/orders"
+            className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-slate-700"
+          >
+            <History className="h-3.5 w-3.5" />
+            Historique
+          </Link>
+        </div>
 
         {/* Header */}
         <div className="mb-7 flex items-center gap-4">

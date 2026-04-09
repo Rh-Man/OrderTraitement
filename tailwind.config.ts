@@ -7,14 +7,7 @@ const config: Config = {
     "./hooks/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-      },
-      colors: {
-        // Couleurs custom pour les opacités non supportées nativement
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

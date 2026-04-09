@@ -65,22 +65,14 @@ export function OrderForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className={cn(
-          "group mt-1 flex w-full items-center justify-center gap-2 rounded-xl",
-          "bg-gradient-to-r from-indigo-600 to-indigo-500 px-4 py-3 text-sm font-semibold text-white",
-          "shadow-md shadow-indigo-200 transition-all duration-200",
-          "hover:from-indigo-700 hover:to-indigo-600 hover:shadow-lg hover:shadow-indigo-200",
-          "active:scale-[0.99]",
-          "focus:outline-none focus:ring-4 focus:ring-indigo-500/20",
-          "disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
-        )}
+        className={cn("group btn-primary mt-2 flex w-full items-center justify-center gap-2")}
       >
         {isLoading ? (
           <Loader label="Création en cours..." className="text-white/80" />
         ) : (
           <>
             Créer la commande
-            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </>
         )}
       </button>
@@ -91,10 +83,15 @@ export function OrderForm() {
 
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
-    <div className="space-y-2">
-      <label className="block text-sm font-semibold text-slate-700">{label}</label>
+    <div className="space-y-2.5">
+      <label className="block text-sm font-bold text-slate-800">{label}</label>
       {children}
-      {error && <p className="flex items-center gap-1 text-xs text-red-500">{error}</p>}
+      {error && (
+        <p className="flex items-center gap-1.5 text-xs font-medium text-red-500">
+          <span className="inline-block h-1 w-1 rounded-full bg-red-500" />
+          {error}
+        </p>
+      )}
     </div>
   );
 }
