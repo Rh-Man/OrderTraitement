@@ -8,8 +8,6 @@ export default function NewOrderPage() {
   return (
     <main className="flex min-h-screen items-center justify-center px-4 py-16">
       <div className="w-full max-w-[420px]">
-
-        {/* Lien historique */}
         <Link
           href="/orders"
           className="mb-8 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-slate-700"
@@ -18,7 +16,6 @@ export default function NewOrderPage() {
           Voir l'historique
         </Link>
 
-        {/* Header */}
         <div className="mb-12 flex flex-col items-center gap-5 text-center">
           <div className="relative">
             <div className="absolute inset-0 animate-pulse rounded-3xl bg-indigo-500 blur-2xl opacity-20" />
@@ -32,7 +29,6 @@ export default function NewOrderPage() {
           </div>
         </div>
 
-        {/* Card */}
         <div className="card p-8">
           <OrderForm />
         </div>

@@ -8,8 +8,6 @@ export default function OrdersPage() {
   return (
     <main className="flex min-h-screen items-start justify-center px-4 py-16">
       <div className="w-full max-w-[600px]">
-
-        {/* Header */}
         <div className="mb-10 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="relative">
@@ -33,11 +31,9 @@ export default function OrdersPage() {
           </Link>
         </div>
 
-        {/* Liste */}
         <div className="card p-7">
           <OrdersList />
         </div>
-
       </div>
     </main>
   );

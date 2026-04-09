@@ -11,10 +11,6 @@ interface UseOrderReturn {
   refresh: () => void;
 }
 
-/**
- * Hook pour récupérer et rafraîchir une commande par son id.
- * `pollingInterval` (ms) active le rafraîchissement automatique si fourni.
- */
 export function useOrder(id: string, pollingInterval?: number): UseOrderReturn {
   const [order, setOrder] = useState<Order | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,12 +29,10 @@ export function useOrder(id: string, pollingInterval?: number): UseOrderReturn {
     }
   }, [id]);
 
-  // Chargement initial
   useEffect(() => {
     fetchOrder();
   }, [fetchOrder]);
 
-  // Polling optionnel — s'arrête si la commande est COMPLETED
   useEffect(() => {
     if (!pollingInterval || order?.status === "COMPLETED") return;
 

@@ -11,10 +11,6 @@ interface UseCreateOrderReturn {
   reset: () => void;
 }
 
-/**
- * Hook encapsulant la logique de création de commande.
- * Les composants UI n'ont qu'à appeler `submit` et réagir à `isLoading` / `error`.
- */
 export function useCreateOrder(): UseCreateOrderReturn {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

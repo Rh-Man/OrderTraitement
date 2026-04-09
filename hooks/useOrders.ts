@@ -11,9 +11,6 @@ interface UseOrdersReturn {
   refresh: () => void;
 }
 
-/**
- * Hook pour récupérer la liste de toutes les commandes
- */
 export function useOrders(): UseOrdersReturn {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isLoading, setIsLoading] = useState(true);
